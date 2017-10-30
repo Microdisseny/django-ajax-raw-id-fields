@@ -1,0 +1,8 @@
+{% load i18n static %}
+{% include 'django/forms/widgets/input.html' %}
+{% if related_url %}<a href="{{ related_url }}" class="related-lookup" id="lookup_id_{{ widget.name }}" title="{{ link_title }}"></a>{% endif %}
+<span class="dj_ajax_raw_id_fields_label" id="{{ name }}_dj_ajax_raw_id_fields_label" data-app="{{ app_name }}" data-model="{{ model_name }}"></span>
+
+<a href="javascript:void(0)" data-clear="id_{{ name }}" class="dj_ajax_raw_id_fields-clear-field">
+    <img src="{% static 'admin/img/icon-deletelink.svg' %}" alt="{% trans 'Delete' %}"/>
+</a>

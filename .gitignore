@@ -1,0 +1,8 @@
+*~
+*.sqlite3
+*.pyc
+__pycache__
+/build/
+/dist/
+venv
+example/dj_ajax_raw_id_fields
