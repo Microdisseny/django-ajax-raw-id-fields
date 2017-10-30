@@ -25,6 +25,16 @@ Define raw_id_fields and dj_raw_id_fields fields
 ```
 
 
+Add **dj_ajax_raw_id_fields.urls** in your **project.urls.py**
+
+```python
+urlpatterns = [
+    ...
+    url(r'^admin/dj_ajax_raw_id_fields/', include(
+        'dj_ajax_raw_id_fields.urls')),
+]
+```
+
 Example image:
 
 ![](example.png?raw=true)
