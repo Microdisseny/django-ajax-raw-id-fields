@@ -9,7 +9,7 @@ There is an example project.
 
 Add **dj\_ajax\_raw_id\_fields** to **INSTALLED\_APPS**
 
-Add **TabsMixin** in your **ModelAdmin**
+Add **AjaxRawIdFieldsMixin** in your **ModelAdmin**
 
 ```python
 from dj_ajax_raw_id_fields.admin import AjaxRawIdFieldsMixin
