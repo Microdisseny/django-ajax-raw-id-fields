@@ -1,8 +1,6 @@
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible
 
 
-@python_2_unicode_compatible
 class Author(models.Model):
     name = models.CharField(max_length=200)
     email = models.CharField(max_length=200, null=True, blank=True)
@@ -12,7 +10,6 @@ class Author(models.Model):
         return self.name
 
 
-@python_2_unicode_compatible
 class Post(models.Model):
     slug = models.SlugField()
     title = models.CharField(max_length=200)

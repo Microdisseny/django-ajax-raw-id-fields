@@ -1,18 +1,19 @@
 # With modifications from
 # https://github.com/lincolnloop/django-salmonella/blob/master/salmonella/views.py
-#
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.conf import settings
 from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponseBadRequest, HttpResponseForbidden
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.apps import apps
 
 
 @user_passes_test(lambda u: u.is_staff)
-def label_view(request, app_name, model_name, template_name="",
-               template_object_name="object"):
+def label_view(request, app_name, model_name):
+
+    template_object_name = 'object'
+    template_name = 'dj_ajax_raw_id_fields/label.html'
 
     # The list of to obtained objects is in GET.id. No need to resume if we
     # didnt get it.
@@ -61,4 +62,4 @@ def label_view(request, app_name, model_name, template_name="",
         msg = 'Model instance does not exist'
         return HttpResponseBadRequest(settings.DEBUG and msg or '')
 
-    return render_to_response((model_template, template_name), extra_context)
+    return render(request, (model_template, template_name), extra_context)
