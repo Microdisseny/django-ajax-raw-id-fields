@@ -1,4 +1,3 @@
-from __future__ import unicode_literals
 from django.conf import settings
 from django.contrib.admin.widgets import ForeignKeyRawIdWidget
 
@@ -12,8 +11,8 @@ class AjaxForeignKeyRawIdWidget(ForeignKeyRawIdWidget):
             name, value, attrs)
         context['widget']['type'] = 'hidden'
 
-        app_name = self.rel.to._meta.app_label.strip()
-        model_name = self.rel.to._meta.object_name.lower().strip()
+        app_name = self.rel.model._meta.app_label.strip()
+        model_name = self.rel.model._meta.object_name.lower().strip()
 
         context.update({
             'name': name,
