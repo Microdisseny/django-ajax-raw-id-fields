@@ -2,6 +2,16 @@
 
 Based on [Django-salmonella](https://github.com/lincolnloop/django-salmonella)
 
+## Install
+
+```
+pip install -e git+https://github.com/Microdisseny/django-ajax-raw-id-fields.git#egg=dj_ajax_raw_id_fields
+```
+or
+
+```
+pip install dj_ajax_raw_id_fields
+```
 
 ## Usage
 
