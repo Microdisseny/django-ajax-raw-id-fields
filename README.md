@@ -10,7 +10,7 @@ pip install -e git+https://github.com/Microdisseny/django-ajax-raw-id-fields.git
 or
 
 ```
-pip install dj_ajax_raw_id_fields
+pip install dj-ajax-raw-id-fields
 ```
 
 ## Usage
