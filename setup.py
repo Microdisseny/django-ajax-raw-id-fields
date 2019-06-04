@@ -2,7 +2,7 @@ from distutils.core import setup
 
 from setuptools import find_packages
 
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 
 CLASSIFIERS = [
     'Framework :: Django',
@@ -21,7 +21,7 @@ setup(
     description='raw_id_fields widget replacement',
     version=VERSION,
     author='MICRODISSENY GISCUBE SL',
-    author_email='ab@microdisseny.com',
+    author_email='tech@microdisseny.com',
     license='MIT License',
     platforms=['OS Independent'],
     url='https://github.com/Microdisseny/django-ajax-raw-id-fields',
