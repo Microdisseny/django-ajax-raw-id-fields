@@ -1,3 +1,4 @@
+from django import forms
 from django.conf import settings
 from django.contrib.admin.widgets import ForeignKeyRawIdWidget
 
@@ -11,6 +12,7 @@ class AjaxForeignKeyRawIdWidget(ForeignKeyRawIdWidget):
             name, value, attrs)
         context['widget']['type'] = 'hidden'
 
+        context['widget']['attrs']['class'] = 'vForeignKeyRawIdAdminField vAjaxForeignKeyRawIdAdminField'
         app_name = self.rel.model._meta.app_label.strip()
         model_name = self.rel.model._meta.object_name.lower().strip()
 
@@ -22,6 +24,15 @@ class AjaxForeignKeyRawIdWidget(ForeignKeyRawIdWidget):
 
         return context
 
-    class Media:
-        js = (settings.STATIC_URL + 'dj_ajax_raw_id_fields/js/'
-              'dj_ajax_raw_id_fields.js',)
+    @property
+    def media(self):
+        extra = '' if settings.DEBUG else '.min'
+        return forms.Media(
+            js=[
+                'admin/js/vendor/jquery/jquery{0}.js'.format(extra),
+                'admin/js/jquery.init.js',
+                'admin/js/core.js',
+                "dj_ajax_raw_id_fields/js/dj_ajax_raw_id_fields.js",
+            ]
+        )
+

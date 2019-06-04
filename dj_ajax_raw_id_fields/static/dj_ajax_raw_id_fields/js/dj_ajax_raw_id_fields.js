@@ -43,7 +43,7 @@ function dismissRelatedLookupPopup(win, chosenId) {
             }
         }
 
-        $(".vForeignKeyRawIdAdminField").change(function(e){
+        $(".vAjaxForeignKeyRawIdAdminField").change(function(e){
             var $this = $(this);
             update_dj_ajax_raw_id_fields_label($this, multi=false);
             e.stopPropagation();
@@ -65,7 +65,7 @@ function dismissRelatedLookupPopup(win, chosenId) {
             return false;
         });
 
-        $(".vForeignKeyRawIdAdminField").each(function() {
+        $(".vAjaxForeignKeyRawIdAdminField").each(function() {
             update_dj_ajax_raw_id_fields_label($(this));
         });
 
