@@ -17,14 +17,12 @@ function dismissRelatedLookupPopup(win, chosenId) {
     $(document).ready(function($) {
 
         function update_dj_ajax_raw_id_fields_label(element){
-
             var fake_element = $('#' + element.attr('id').replace('id_', '') + '_dj_ajax_raw_id_fields_label')
             var app = fake_element.attr("data-app"),
                 model = fake_element.attr("data-model"),
                 value = element.val();
             if (value.length > 0){
-                var url = '';
-                url = $('#site-name > a').attr('href');
+                var url = fake_element.attr("data-site-name-url");
                 if (url.substr(url.length - 1) !== '/'){
                     url += '/';
                 }
