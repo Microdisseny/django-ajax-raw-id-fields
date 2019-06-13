@@ -73,9 +73,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'example.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -108,3 +105,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Overwrite settings
+# -------------------------------------
+ENVIRONMENT_NAME = os.environ.get('ENVIRONMENT_NAME', '')
+extra_settings_file = 'settings-%s.py' % ENVIRONMENT_NAME
+extra_settings_dir = os.path.dirname(os.path.abspath(__file__))
+extra_settings_path = os.path.join(extra_settings_dir, extra_settings_file)
+if os.path.exists(extra_settings_path):
+    print('Try to load extra settings: %s' % extra_settings_file)
+    # Python 2 only:
+    # execfile(extra_settings_path, globals())
+    # Python 2 and 3:
+    exec(compile(open(extra_settings_path, 'rb').read(), extra_settings_path, 'exec'), globals())

@@ -9,3 +9,4 @@ example/dj_ajax_raw_id_fields
 pylama.ini
 upload_new_version.txt
 dj_ajax_raw_id_fields.egg-info
+docker/requirements.txt

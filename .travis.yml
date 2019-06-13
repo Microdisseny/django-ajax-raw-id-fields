@@ -1,0 +1,33 @@
+language: python
+
+dist: bionic
+sudo: required
+
+addons:
+  chrome: stable
+
+python:
+  - 3.5
+  - 3.6
+  - 3.7
+
+env:
+  global:
+    - ENVIRONMENT_NAME: test
+  matrix:
+    # Fixme sqlite django.db.utils.IntegrityError: FOREIGN KEY constraint failed
+    # - DJANGO_VERSION=django21
+    - DJANGO_VERSION=django22
+
+before_install:
+  - wget -N https://chromedriver.storage.googleapis.com/2.35/chromedriver_linux64.zip -P ~/
+  - unzip ~/chromedriver_linux64.zip -d ~/
+  - sudo mv -f ~/chromedriver /usr/local/bin/chromedriver
+  - sudo chmod +x /usr/local/bin/chromedriver
+  - export PATH=$PATH:/usr/local/bin/chromedriver
+
+install:
+    - pip install -r "./example/requirements_${DJANGO_VERSION}.txt"
+
+script:
+ - export PYTHONPATH=${PWD}:${PWD} && cd example && python manage.py test
