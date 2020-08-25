@@ -17,7 +17,7 @@ function dismissRelatedLookupPopup(win, chosenId) {
     $(document).ready(function($) {
 
         function update_dj_ajax_raw_id_fields_label(element){
-            var fake_element = $('#' + element.attr('id').replace('id_', '') + '_dj_ajax_raw_id_fields_label')
+            var fake_element = element.siblings('.dj_ajax_raw_id_fields_label');
             var app = fake_element.attr("data-app"),
                 model = fake_element.attr("data-model"),
                 value = element.val();
